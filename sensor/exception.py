@@ -10,8 +10,10 @@ def error_message_detail(error,error_detal:sys):
         file_name, exc_tb.tb_lineno, str(error)
     )
 
+    return error_message
 
-class sensorException(Exception):
+
+class SensorException(Exception):
     
     def __init__(self, error_message, error_detail:sys):
         """
