@@ -1,4 +1,5 @@
 import pymongo
+from sensor.constant.env_variable import MONGODB_URL_KEY
 from sensor.constant.database import DATABASE_NAME
 import certifi
 
@@ -9,7 +10,7 @@ class MongoDBClient:
     def __init__(self,database_name=DATABASE_NAME) -> None:
         try:
             if MongoDBClient.client == None:
-                mongo_db_url = 'mongodb+srv://root:root@cluster0.klhye8n.mongodb.net/?retryWrites=true&w=majority'
+                mongo_db_url = MONGODB_URL_KEY
                 MongoDBClient.client = pymongo.MongoClient(mongo_db_url, tlsCAFile=ca)
                 self.client = MongoDBClient.client
                 self.database = self.client[database_name]
