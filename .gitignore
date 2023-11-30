@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 artifact
 logs
+env.yaml
 
 # C extensions
 *.so
