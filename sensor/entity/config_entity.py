@@ -79,4 +79,6 @@ class ModelTrainerConfig:
         
         self.expected_accuracy:float = training_pipeline.MODEL_TRAINER_EXPECTED_SCORE
 
+        self.under_and_over_fitting_threshold:float = training_pipeline.MODEL_TRAINER_OVER_AND_UNDER_FITTING_THRESHOLD
+
 

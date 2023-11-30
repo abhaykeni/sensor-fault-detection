@@ -66,4 +66,15 @@ def save_object(filepath:str, obj:object)->None:
         raise SensorException(e,sys)
 
 
+def load_object(filepath:str)->object:
+    try:
+        logging.info('Entered the load_object method of main utils class')
+        if not os.path.exists(filepath):
+            raise Exception(f"The filepath: {filepath} does not exist")
+        with open(filepath,'rb') as file_obj:
+            dill.load(file_obj)
+            return dill
+    except Exception as e:
+        raise SensorException(e,sys)
+
 
