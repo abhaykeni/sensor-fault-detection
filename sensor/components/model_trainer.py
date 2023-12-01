@@ -47,7 +47,7 @@ class ModelTrainer:
             y_train_pred = model.predict(X_train)
             classification_train_metric = get_classification_score(y_true=y_train, y_pred=y_train_pred)
 
-            if classification_train_metric < self.model_trainer_config.expected_accuracy:
+            if classification_train_metric.f1_score <= self.model_trainer_config.expected_accuracy:
                 raise Exception("Trained model is not good to provide expected accuracy")
 
             y_test_pred = model.predict(X_test)
@@ -68,9 +68,9 @@ class ModelTrainer:
             #Model Trainer Artifact
 
             model_trainer_artifact = ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
-                                 test_metric_artifact=classification_train_metric,
+                                 train_metric_artifact=classification_train_metric,
                                  test_metric_artifact=classification_test_metric)
-
+            logging.info(f"Model Trainer Artifact: {model_trainer_artifact}")
             return model_trainer_artifact
         
         except Exception as e:

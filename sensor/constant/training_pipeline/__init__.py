@@ -2,6 +2,8 @@ import os
 from sensor.constant.s3_bucket import TRAINING_BUCKET_NAME
 
 
+SAVED_MODEL_DIR:str = os.path.join('saved_models')
+
 # Defining common constants for training pipeline
 TARGET_COLUMN = 'class'
 PIPELINE_NAME:str = 'sensor'
@@ -11,10 +13,10 @@ FILE_NAME:str = 'sensor.csv'
 TRAIN_FILE_NAME:str = 'train.csv'
 TEST_FILE_NAME:str = 'test.csv'
 
-PREPROCESSING_OBJECT_FILE_NAME = 'preprocessing.pkl'
-MODEL_FILE_NAME = 'model.pkl'
-SCHEMA_FILE_PATH = os.path.join('config','schema.yaml')
-SCHEMA_DROP_COLS = 'drop_columns'
+PREPROCESSING_OBJECT_FILE_NAME:str = 'preprocessing.pkl'
+MODEL_FILE_NAME:str = 'model.pkl'
+SCHEMA_FILE_PATH:str = os.path.join('config','schema.yaml')
+SCHEMA_DROP_COLS:str = 'drop_columns'
 
 
 # Defining constants for data ingestion pipeline
@@ -49,7 +51,13 @@ MODEL_TRAINER_EXPECTED_SCORE:float = 0.6
 MODEL_TRAINER_OVER_AND_UNDER_FITTING_THRESHOLD:float = 0.05
 
 
-#Model Evaluation
+#Defining constants for model evaluation
+MODEL_EVALUATION_DIR_NAME:str = 'model_evaluation'
+MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE:float = 0.02
+MODEL_EVALUATION_REPORT_FILE_NAME:str = 'report.yaml'
 
-MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE:str = 0.02
 
+# Defining constants for model pusher
+
+MODEL_PUSHER_DIR_NAME:str = 'model_pusher'
+MODEL_PUSHER_SAVED_MODEL_DIR:str = SAVED_MODEL_DIR
