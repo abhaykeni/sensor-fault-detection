@@ -1,0 +1,8 @@
+artifact
+saved_models
+venv
+.env
+docs
+flowcharts
+notebooks
+.git

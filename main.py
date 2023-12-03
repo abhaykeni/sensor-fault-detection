@@ -65,7 +65,6 @@ async def predict_route():
 
 def main():
     try:
-        
         set_env_variable(env_file_path=env_file_path)
         train_pipeline = TrainPipeline()
         train_pipeline.run_pipeline()
